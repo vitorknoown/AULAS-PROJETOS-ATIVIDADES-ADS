@@ -1,0 +1,200 @@
+/*#region global*/
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: rgb(236, 236, 236);
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  padding: 1.5em;
+  font-size: 3em;
+}
+
+span {
+  display: flex;
+  justify-content: center;
+  font-size: 2em;
+}
+
+#form {
+  margin: 5em 25em;
+  background-color: #e3e9e9; 
+  padding: 2em;
+  border-radius: 20px;
+  border: solid 5px #e0f7fa;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+#voltar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3em auto;
+  height: 3em;
+  width: 18em;
+  border-radius: 3%;
+  border: solid 1px black;
+  background-color: rgb(230, 229, 229);
+  color: black;
+  text-decoration: none;
+  font-size: 1.2em;
+  transition: background-color 0.3s;
+}
+
+#voltar:hover {
+  transition: 0.3s;
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+/*#endregion*/
+
+/*#region home*/
+
+#top-bar {
+  background-image: url(https://i0.wp.com/www.opuspesquisa.com/wp-content/uploads/2021/03/Pesquisa-de-mercado-para-supermercado.png?resize=730%2C441&ssl=1);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 300px;
+  width: 100%;
+  border-bottom: 3px solid #ccc;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+ul {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100vw;
+
+  li {
+    width: 8em;
+    height: 15em;
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+    font-size: 1.5em;
+    margin-top: 5em;
+    background-color: #9da2a3; 
+    border: solid 2px black;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: translateY(-5px);
+      background-color: #807e7e;
+      cursor: pointer;
+    }
+
+    a {
+      color: white;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      text-decoration: none;
+
+      i {
+        font-size: 3em;
+        padding: 0.5em;
+        color: white;
+      }
+    }
+  }
+}
+
+
+/*#endregion*/
+
+/*#region forms*/
+h2 { 
+  display: flex;
+  justify-content: center;
+  padding: 1.5em 0 1em 0;
+  font-size: 3em;
+  color: #333;
+  font-weight: 700;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 1em 20em;
+
+  label {
+    display: flex;
+    justify-content: center;
+    font-size: 1.5em;
+    color: #222;
+    margin-bottom: 0.3em;
+  }
+
+  input {
+    margin: 1em;
+    height: 2em;
+    text-align: center;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 0.5em;
+    transition: border 0.3s ease;
+  }
+
+  input:focus {
+    border-color: #00bcd4;
+    outline: none;
+  }
+
+  button {
+    height: 3em;
+    border-radius: 3%;
+  }
+
+  button:hover {
+    cursor: pointer;
+    background-color: gray;
+    color: white;
+    transition: 3s;
+  }
+}
+
+/*#endregion*/
+
+/*#region listar*/
+
+#listar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  button {
+    height: 3em;
+    width: 50%;
+    margin-bottom: 2em;
+  }
+
+  button:hover {
+    cursor: pointer;
+    transition: 3s;
+  }
+}
+
+/*#endregion*/

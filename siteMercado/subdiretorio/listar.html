@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Compras</title>
+    <link rel="stylesheet" href="../style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <div id="form">
+        <div id="listar">
+            <h2>Listar Pedido</h2>
+            <button id="listarButton">Listar Pedido</button>
+            <ul id="pedidoLista"></ul>
+            <a id="voltar" href="/siteMercado/index.html">Home</a>
+        </div>
+    </div>
+    <script>
+        const API_URL = 'http://localhost:3000/pedido';
+        document.getElementById('listarButton').addEventListener('click', function () {
+            fetch(API_URL)
+                .then(response => response.json())
+                .then(data => {
+                    const pedidoLista = document.getElementById('pedidoLista');
+                    pedidoLista.innerHTML = '';
+                    if (data.mensagem) {
+                        pedidoLista.innerHTML = `<li>${data.mensagem}</li>`;
+                    } else {
+                        data.forEach((item, index) => {
+                            pedidoLista.innerHTML += `<li>${item.item} - Quantidade: ${item.quantidade} (Índice: ${index})</li>`;
+                        });
+                    }
+                });
+        });
+    </script>
+</body>
+
+</html>

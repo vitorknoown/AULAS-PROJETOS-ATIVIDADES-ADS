@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Item nas Compras</title>
+    <link rel="stylesheet" href="../style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <div id="form">
+        <h2>Buscar Item</h2>
+        <form id="buscarForm">
+            <input type="text" id="item" placeholder="Digite o nome do item" required>
+            <button type="submit">Buscar</button>
+        </form>
+        <ul id="resultadoLista"></ul>
+    </div>
+    <a id="voltar" href="/siteMercado/index.html">Home</a>
+    <script>
+        const API_URL = 'http://localhost:3000/buscar';
+
+        document.getElementById('buscarForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const item = document.getElementById('item').value;
+            const resultadoLista = document.getElementById('resultadoLista');
+
+            fetch(`${API_URL}?item=${encodeURIComponent(item)}`)
+                .then(res => {
+                    if (!res.ok) {
+                        return res.json().then(err => { throw err });
+                    }
+                    return res.json();
+                })
+                .then(data => {
+                    resultadoLista.innerHTML = '';
+
+                    if (data.mensagem) {
+                        resultadoLista.innerHTML = `<li>${data.mensagem}</li>`;
+                    } else {
+                        resultadoLista.innerHTML = `<li>${data.item} - Quantidade: ${data.quantidade}</li>`;
+                    }
+                })
+                .catch((error) => {
+                    resultadoLista.innerHTML = `<li>Erro: ${error.mensagem || 'ao buscar item'}</li>`;
+                    console.error('Erro ao buscar item:', error);
+                });
+        })
+    </script>
+</body>
+
+</html>
